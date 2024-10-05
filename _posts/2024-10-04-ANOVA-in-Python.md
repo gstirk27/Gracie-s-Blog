@@ -56,12 +56,26 @@ hor_skew = sp.skew(horror.loc[:,'Height'])
 com_skew = sp.skew(comedy.loc[:,'Height'])
 act_skew = sp.skew(action.loc[:,'Height'])
 ```
-From this we can see that the skewness is:
+
+This is some code that will put the skewness of each genre in a table:
 ```python
 skews = [["Romance", rom_skew],["Horror", hor_skew],["Comedy", com_skew],["Action", act_skew]]
 
 print(tabulate(skews, headers=["Genre", "Skewness"], tablefmt="grid"))
 ```
+The table will look something like this:
+
++---------+------------+
+| Genre   |   Skewness |
++=========+============+
+| Romance | -0.207165  |
++---------+------------+
+| Horror  |  0.262525  |
++---------+------------+
+| Comedy  | -0.304662  |
++---------+------------+
+| Action  | -0.0616975 |
++---------+------------+
 
 There are many different methods to check if data is approximately normal, but checking if the skewness is between -0.5 and +0.5 is the technique I'm most familiar with. We can see from the above table that all of the genres are approximately normal. None of them are particularly left or right-skewed. 
 
@@ -84,6 +98,18 @@ stds = [["Romance", rom_sd],["Horror", hor_sd],["Comedy", com_sd],["Action", act
 print(tabulate(stds, headers=["Genre", "Standard Deviations"], tablefmt="grid"))
 ```
 
+That code will yield this table:
++---------+-----------------------+
+| Genre   |   Standard Deviations |
++=========+=======================+
+| Romance |               2.73264 |
++---------+-----------------------+
+| Horror  |               1.60773 |
++---------+-----------------------+
+| Comedy  |               3.06791 |
++---------+-----------------------+
+| Action  |               1.89804 |
++---------+-----------------------+
 The general rule I've learned to check this assumption is that the maximum standard deviation should not be more than 2x the smallest standard deviation. The horror genre has a standard deviation of 1.61, and then comedy genre has a standard deviation of 3.07, so that assumption is met as well!
 
 So now we can move on to the fun stuff!
@@ -96,6 +122,8 @@ The scipy.stats library has a function built in to do a one-way ANOVA analysis t
 
 ```python
 F_stat, p_val = sp.f_oneway(romance['Height'],horror['Height'],comedy['Height'],action['Height'])
-print("The F-Statistic is " + str(F_stat) + ".")
-print("The p-value is " + str(p_val) + ".")
+
 ```
+This will give us a F-statistic of 3.911 and a p-value of 0.0128. If we use a significance level of 0.05, we can reject the null hypothesis and conclude that at least one of the mean heights is different than the others.
+
+We could keep going to determine which mean or means are different than the others, but I'll leave that for a future post! Thanks for coming with me on this Data Science journey:)
