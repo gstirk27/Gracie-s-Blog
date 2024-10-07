@@ -65,7 +65,12 @@ print(tabulate(skews, headers=["Genre", "Skewness"], tablefmt="grid"))
 ```
 The table will look something like this:
 
-![Figure]({{site.url}}/{{site.baseurl}}/assets/images/genre-skewness.png)
+| Genre      | Skewness   |
+| ---------- | ---------- |
+| Romance    | -0.207165  |
+| Horror     | 0.262525   |
+| Comedy     | -0.304662  |
+| Action     | -0.0616975 |
 
 There are many different methods to check if data is approximately normal, but checking if the skewness is between -0.5 and +0.5 is the technique I'm most familiar with. We can see from the above table that all of the genres are approximately normal. None of them are particularly left or right-skewed. 
 
@@ -89,7 +94,13 @@ print(tabulate(stds, headers=["Genre", "Standard Deviations"], tablefmt="grid"))
 ```
 
 That code will yield this table:
-![Figure]({{site.url}}/{{site.baseurl}}/assets/images/genre-sd.png)
+| Genre      | Standard Deviation |
+| ---------- | ------------------ |
+| Romance    | 2.73264            |
+| Horror     | 1.60773            |
+| Comedy     | 3.06791            |
+| Action     | 1.89804            |
+
 The general rule I've learned to check this assumption is that the maximum standard deviation should not be more than 2x the smallest standard deviation. The horror genre has a standard deviation of 1.61, and then comedy genre has a standard deviation of 3.07, so that assumption is met as well!
 
 So now we can move on to the fun stuff!
