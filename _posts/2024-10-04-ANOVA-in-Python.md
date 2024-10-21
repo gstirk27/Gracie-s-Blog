@@ -94,12 +94,13 @@ print(tabulate(stds, headers=["Genre", "Standard Deviations"], tablefmt="grid"))
 ```
 
 That code will yield this table:
-| Genre      | Std Dev |
-| ---------- | ------- |
-| Romance    | 2.73264 |
-| Horror     | 1.60773 |
-| Comedy     | 3.06791 |
-| Action     | 1.89804 |
+
+| Genre      | Std Dev    |
+| ---------- | ---------- |
+| Romance    | 2.73264    |
+| Horror     | 1.60773    |
+| Comedy     | 3.06791    |
+| Action     | 1.89804    |
 
 The general rule I've learned to check this assumption is that the maximum standard deviation should not be more than 2x the smallest standard deviation. The horror genre has a standard deviation of 1.61, and then comedy genre has a standard deviation of 3.07, so that assumption is met as well!
 
