@@ -26,7 +26,8 @@ from tabulate import tabulate
 
 We'll primarily be using scipy.stats for its useful functions relating to ANOVA and variance.
 
-Next to read in the dataset:
+[Data]({{site.url}}/{{site.baseurl}}/actor_height.csv)
+Next, we read in the dataset:
 
 ```python
 data = pd.read_csv('actor_height.csv')
