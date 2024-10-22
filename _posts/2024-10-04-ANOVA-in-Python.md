@@ -11,7 +11,7 @@ image: "/assets/images/pretty-trees.jpg"
 ### ANOVA in Python
 ANOVA is a catchy name for ANalysis Of VAriance. It's a useful tool for analyzing multiple means at the same time, specifically three or more means. This blog post is going to assume that the reader has a basic understanding of hypothesis testing and the python language.
 
-For now, we'll do a one-way ANOVA. Let's say I want to see if actors in certain genres of film have different heights on average. Maybe I want to see if action heros are typically portrayed by taller actors on average. For the purpose of this post, I made up some data around this.
+For now, we'll do a one-way ANOVA. Let's say I want to see if actors in certain genres of film have different heights on average. Maybe I want to see if action heros are typically portrayed by taller actors on average. For the purpose of this post, I made up some data around this, which can be found [here.]({{site.url}}/{{site.baseurl}}/My-Blog/actor_height.csv)
 
 ## Getting Started
 
@@ -26,7 +26,6 @@ from tabulate import tabulate
 
 We'll primarily be using scipy.stats for its useful functions relating to ANOVA and variance.
 
-[Data]({{site.url}}/{{site.baseurl}}/actor_height.csv)
 Next, we read in the dataset:
 
 ```python
