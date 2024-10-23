@@ -153,14 +153,60 @@ plt.legend(loc = "upper right")
 plt.show()
 ```
 This should yield us this graph:
-![the density plot](https://github.com/gstirk27/My-Blog/blob/768cb2285ae53545975c8e3ed49dcad3ec55a0a7/assets/images/density_plot.png)
+
+![the density plot](https://raw.githubusercontent.com/gstirk27/My-Blog/assets/images/density_plot.png)
 
 There's a lot of overlap, so it's hard to say for sure if one genre attracts taller actors to their movies.
 
-Next, we can look at the confidence intervals.
+Next, we can look at the confidence intervals to see if one group is taller on average.
 
+There are probably more elegant ways to calculate the confidence intervals, but here's how I did it: 
 
+```python
+#mean
+mean_rom = romance['Height'].mean()
+mean_hor = horror['Height'].mean()
+mean_com = comedy['Height'].mean()
+mean_act = action['Height'].mean()
+
+#standard error
+se_rom = romance['Height'].std() / np.sqrt(len(romance['Height']))
+se_hor = horror['Height'].std() / np.sqrt(len(horror['Height']))
+se_com = comedy['Height'].std() / np.sqrt(len(comedy['Height']))
+se_act = action['Height'].std() / np.sqrt(len(action['Height']))
+
+ci_rom = se_rom * 1.96  # For 95% CI
+ci_hor = se_hor * 1.96
+ci_com = se_com * 1.96
+ci_act = se_act * 1.96
+
+lower_rom = mean_rom - ci_rom
+upper_rom = mean_rom + ci_rom
+print("Romance CI: ", lower_rom, upper_rom)
+
+lower_hor = mean_hor - ci_hor
+upper_hor = mean_hor + ci_hor
+print("Horror CI: ", lower_hor, upper_hor)
+
+lower_com = mean_com - ci_com
+upper_com = mean_com + ci_com
+print("Comedy CI: ", lower_com, upper_com)
+
+lower_act = mean_act - ci_act
+upper_act = mean_act + ci_act
+print("Action CI: ", lower_act, upper_act)
+```
+This code should get you these 95% confidence intervals
+
+| Genre             | Lower Bound       | Upper Bound       |
+| ----------------- | ----------------- | ----------------- |
+| Romance           | 65.68202926541612 | 68.20685962347277 |
+| Horror            | 67.1191817501475  | 68.56502877616828 |
+| Comedy            | 65.17864337157363 | 68.39278519985496 |
+| Action            | 68.50667405824129 | 70.57024901868178 |
+
+As you can see, at a 95% confidence level, Action genre actors are just barely considered taller than Comedy and Romance actors. Going back to our initial question, based on this dataset, we can say that action movie stars are significantly taller than other genre actors.
 
 ## Conclusion
 
-I hope you enjoyed this short tutorial for getting started with doing ANOVA in Python! I'm still learning about different functions in Python, so it was a bit basic today. We could keep going to determine which mean or means are different than the others, but I'll leave that for a future post! Thanks for coming with me on this Data Science journey!
+I hope you enjoyed this short tutorial for getting started with doing ANOVA in Python! I'm still learning about different functions in Python, so I didn't do anything too complicated. I hope that you'll be able to download the data and try to do the analysis for yourself! 
