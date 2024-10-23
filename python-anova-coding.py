@@ -8,6 +8,8 @@ import scipy.stats as sp
 from tabulate import tabulate
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #import and show data
 
@@ -53,4 +55,16 @@ F_stat, p_val = sp.f_oneway(romance['Height'],horror['Height'],comedy['Height'],
 model = ols('Height ~ Genre', data=data).fit()
 
 anova_table = sm.stats.anova_lm(model, typ=2)
-print(anova_table)
+#print(anova_table)
+
+#plt.hist(romance.Height, bins = 10, alpha = 0.5, color = "hotpink", label = "Romance")
+#plt.hist(horror.Height, bins = 10, alpha = 0.5, color = "darkgray", label = "Horror")
+#plt.hist(comedy.Height, bins = 10, alpha = 0.5, color = "blue", label = "Comedy")
+#plt.hist(action.Height, bins = 10, alpha = 0.5, color = "green", label = "Action")
+sns.kdeplot(romance.Height, label='Romance', color='hotpink', lw=2)
+sns.kdeplot(horror.Height, label='Horror', color='black', lw=2)
+sns.kdeplot(comedy.Height, label='Comedy', color='blue', lw=2)
+sns.kdeplot(action.Height, label='Action', color='green', lw=2)
+plt.legend(loc = "upper right")
+#plt.show()
+plt.savefig('density_plot.png', dpi=300, bbox_inches='tight')

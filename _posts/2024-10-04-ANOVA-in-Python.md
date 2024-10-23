@@ -24,6 +24,8 @@ import scipy.stats as sp
 from tabulate import tabulate
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
+import seaborn as sns
+import matplotlib.pyplot as plt
 ```
 
 We'll primarily be using scipy.stats for its useful functions relating to ANOVA and variance.
@@ -134,8 +136,24 @@ This will yield something like this table:
 | Genre      | 66.300703  | 3.0        | 3.910869   | 0.012838   |
 | Residual   | 339.058672 | 60.0       | NaN        | NaN        |
 
+This table tells us that the Genre has a statistically significant effect on the height of the actor.
 
+## Looking a Little Closer
 
+Let's see if we can dig a bit deeper to see what else is going on here.
+
+We can create density plots of each of the heights to see if we can find any trends using the seaborn library.
+
+```python
+sns.kdeplot(romance.Height, label='Romance', color='hotpink', lw=2)
+sns.kdeplot(horror.Height, label='Horror', color='black', lw=2)
+sns.kdeplot(comedy.Height, label='Comedy', color='blue', lw=2)
+sns.kdeplot(action.Height, label='Action', color='green', lw=2)
+plt.legend(loc = "upper right")
+plt.show()
+```
+This should yield us this graph:
+![density_plot.png](assets/images/density_plot.png)
 
 ## Conclusion
 
