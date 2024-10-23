@@ -6,6 +6,8 @@ import numpy as np
 import pandas as pd
 import scipy.stats as sp
 from tabulate import tabulate
+from statsmodels.formula.api import ols
+import statsmodels.api as sm
 
 #import and show data
 
@@ -29,7 +31,7 @@ skews = [["Romance", rom_skew],["Horror", hor_skew],
          ["Comedy", com_skew],["Action", act_skew]]
 
 #make a table
-print(tabulate(skews, headers=["Genre", "Skewness"], tablefmt="grid"))
+#print(tabulate(skews, headers=["Genre", "Skewness"], tablefmt="grid"))
 
 #standard deviations
 rom_sd = sp.tstd(romance.loc[:,'Height'])
@@ -38,7 +40,17 @@ com_sd = sp.tstd(comedy.loc[:,'Height'])
 act_sd = sp.tstd(action.loc[:,'Height'])
 
 stds = [["Romance", rom_sd],["Horror", hor_sd],["Comedy", com_sd],["Action", act_sd]]
+
 #make a table
-print(tabulate(stds, headers=["Genre", "Standard Deviations"], tablefmt="grid"))
+#print(tabulate(stds, headers=["Genre", "Standard Deviations"], tablefmt="grid"))
 
 F_stat, p_val = sp.f_oneway(romance['Height'],horror['Height'],comedy['Height'],action['Height'])
+#print("The F-Statistic is " + str(F_stat) + ".")
+#print("The p-value is " + str(p_val) + ".")
+
+
+#model = ols('Height ~ romance, horror, comedy, action', data=heights).fit()
+model = ols('Height ~ Genre', data=data).fit()
+
+anova_table = sm.stats.anova_lm(model, typ=2)
+print(anova_table)

@@ -22,6 +22,8 @@ import numpy as np
 import pandas as pd
 import scipy.stats as sp
 from tabulate import tabulate
+from statsmodels.formula.api import ols
+import statsmodels.api as sm
 ```
 
 We'll primarily be using scipy.stats for its useful functions relating to ANOVA and variance.
@@ -110,10 +112,6 @@ So now we can move on to the fun stuff!
 
 The first thing we should do is check to see if we need to reject our null hypothesis! Our null hypothesis is that the mean heights for all actors is the same across all genres, and our alternative hypothesis is that at least one is different.
 
-Or: 
-$H_0$: $\mu_romance$ = $\mu_horror$ = $\mu_comedy$ = $\mu_action$
-$H_a$: *At least one mean is different*
-
 The scipy.stats library has a function built in to do a one-way ANOVA analysis that we can use this way to get the F-statistic and the p-value.
 
 ```python
@@ -121,6 +119,22 @@ F_stat, p_val = sp.f_oneway(romance['Height'],horror['Height'],comedy['Height'],
 
 ```
 This will give us a F-statistic of 3.911 and a p-value of 0.0128. If we use a significance level of 0.05, we can reject the null hypothesis and conclude that at least one of the mean heights is different than the others.
+
+We can also get these values in an ANOVA table by using the ols function in the statsmodels library.
+
+```python
+model = ols('Height ~ Genre', data=data).fit()
+anova_table = sm.stats.anova_lm(model, typ=2)
+print(anova_table)
+```
+This will yield something like this table:
+
+|            | sum_sq     | df         | F          | PR(>F)     |
+| ---------- | ---------- | ---------- | ---------- | ---------- |   
+| Genre      | 66.300703  | 3.0        | 3.910869   | 0.012838   |
+| Residual   | 339.058672 | 60.0       | NaN        | NaN        |
+
+
 
 
 ## Conclusion
