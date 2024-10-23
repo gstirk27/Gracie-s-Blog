@@ -142,23 +142,7 @@ This table tells us that the Genre has a statistically significant effect on the
 
 Let's see if we can dig a bit deeper to see what else is going on here.
 
-We can create density plots of each of the heights to see if we can find any trends using the seaborn library.
-
-```python
-sns.kdeplot(romance.Height, label='Romance', color='hotpink', lw=2)
-sns.kdeplot(horror.Height, label='Horror', color='black', lw=2)
-sns.kdeplot(comedy.Height, label='Comedy', color='blue', lw=2)
-sns.kdeplot(action.Height, label='Action', color='green', lw=2)
-plt.legend(loc = "upper right")
-plt.show()
-```
-This should yield us this graph:
-
-![the density plot](https://raw.githubusercontent.com/gstirk27/My-Blog/assets/images/density_plot.png)
-
-There's a lot of overlap, so it's hard to say for sure if one genre attracts taller actors to their movies.
-
-Next, we can look at the confidence intervals to see if one group is taller on average.
+We can look at the confidence intervals to see if one group is taller on average.
 
 There are probably more elegant ways to calculate the confidence intervals, but here's how I did it: 
 
