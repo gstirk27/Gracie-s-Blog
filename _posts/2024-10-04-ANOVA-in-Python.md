@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "ANOVA in Python"
+title: "Starting ANOVA in Python"
 author: Gracie Stirk
-description: A step by step guide to doing an ANOVA analysis in Python
+description: A step by step guide to starting an ANOVA analysis in Python
 image: "/assets/images/pretty-trees.jpg"
 ---
 
@@ -109,6 +109,10 @@ So now we can move on to the fun stuff!
 ## The Fun Stuff
 
 The first thing we should do is check to see if we need to reject our null hypothesis! Our null hypothesis is that the mean heights for all actors is the same across all genres, and our alternative hypothesis is that at least one is different.
+
+Or: 
+$H_0$: $\mu_romance$ = $\mu_horror$ = $\mu_comedy$ = $\mu_action$
+$H_a$: *At least one mean is different*
 
 The scipy.stats library has a function built in to do a one-way ANOVA analysis that we can use this way to get the F-statistic and the p-value.
 
