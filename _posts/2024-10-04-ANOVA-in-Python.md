@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Starting ANOVA in Python"
+title: "A New Way to do ANOVA"
 author: Gracie Stirk
 description: A step by step guide to starting an ANOVA analysis in Python
 image: "/assets/images/pretty-trees.jpg"
@@ -9,7 +9,7 @@ image: "/assets/images/pretty-trees.jpg"
 --- 
 ---
 ### ANOVA in Python
-ANOVA is a catchy name for ANalysis Of VAriance. It's a useful tool for analyzing multiple means at the same time, specifically three or more means. This blog post is going to assume that the reader has a basic understanding of hypothesis testing and the python language.
+[ANOVA](https://researchmethod.net/anova/) is a catchy name for ANalysis Of VAriance. It's a useful tool for analyzing multiple means at the same time, specifically three or more means. This blog post is going to assume that the reader has a basic understanding of hypothesis testing and the python language.
 
 For now, we'll do a one-way ANOVA. Let's say I want to see if actors in certain genres of film have different heights on average. Maybe I want to see if action heros are typically portrayed by taller actors on average. For the purpose of this post, I made up some data around this, which can be found [here.](https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/actor_height.csv)
 
@@ -28,7 +28,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
-We'll primarily be using scipy.stats for its useful functions relating to ANOVA and variance.
+We'll primarily be using [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) for its useful functions relating to ANOVA and variance.
 
 Next, we read in the dataset:
 
@@ -76,7 +76,7 @@ The table will look something like this:
 | Comedy     | -0.304662  |
 | Action     | -0.0616975 |
 
-There are many different methods to check if data is approximately normal, but checking if the skewness is between -0.5 and +0.5 is the technique I'm most familiar with. We can see from the above table that all of the genres are approximately normal. None of them are particularly left or right-skewed. 
+There are [many different methods](https://datatab.net/tutorial/test-of-normality) to check if data is approximately normal, but checking if the skewness is between -0.5 and +0.5 is the technique I'm most familiar with. We can see from the above table that all of the genres are approximately normal. None of them are particularly left or right-skewed. 
 
 We also need to check the standard deviations to make sure they're approximately equal.
 
@@ -153,7 +153,13 @@ plt.legend(loc = "upper right")
 plt.show()
 ```
 This should yield us this graph:
-![density_plot](https://raw.githubusercontent.com/gstirk27/My-Blog/assets/images/density_plot.png)
+![the density plot](https://github.com/gstirk27/My-Blog/blob/768cb2285ae53545975c8e3ed49dcad3ec55a0a7/assets/images/density_plot.png)
+
+There's a lot of overlap, so it's hard to say for sure if one genre attracts taller actors to their movies.
+
+Next, we can look at the confidence intervals.
+
+
 
 ## Conclusion
 
