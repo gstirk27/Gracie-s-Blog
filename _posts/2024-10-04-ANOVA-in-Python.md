@@ -153,7 +153,7 @@ plt.legend(loc = "upper right")
 plt.show()
 ```
 This should yield us this graph:
-![density_plot]({{site.url}}/{{site.baseurl}}/assets/images/density_plot.png)
+![density_plot](https://raw.githubusercontent.com/gstirk27/My-Blog/assets/images/density_plot.png)
 
 ## Conclusion
 
