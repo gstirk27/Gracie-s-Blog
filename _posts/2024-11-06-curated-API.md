@@ -53,7 +53,37 @@ At this point, you can see that it lists the game appearances of each character 
 ```python
 df['str'] = df['appearances'].apply(lambda x: x[0] if isinstance(x, list) and len(x) > 0 else None)
 df['str'].str.extract(r'([^/]+)$')
-
 ```
 
-Now to convert the game ids into the game titles!
+Now to convert the game IDs into the game titles!
+
+One way to do this is to merge the dataset with the Games dataset on the same site. Each game on the site has a unique ID code.
+
+There aren't as many games as there are characters, so we don't have to do a for loop for to get the games.
+
+```python
+urlg = 'https://zelda.fanapis.com/api/games?limit=100'
+gr = requests.get(urlg)
+gdata = gr.json()['data']
+games = pd.DataFrame(gdata)
+```
+
+From here, there's a lot of extra information that we don't need, like publisher and release date. We can drop these extra columns with this command:
+```python
+games.drop(columns=['description','developer','publisher','released_date'],inplace=True)
+```
+
+To make sure the merge doesn't have any issues, we'll rename the columns so we don't have a character name column and a game name column:
+```python
+games.rename(columns={'id':'game_id','name':'title'},inplace=True)
+```
+Now, we're ready to merge our two datasets together! We'll want a left merge, since we want to keep most of the columns in the original dataset.
+
+```python
+newdf = pd.merge(df,games, on='game_id',how='left')
+```
+Next, we'll drop the extra columns the null values.
+```python
+characters = newdf.drop(columns=['appearances','description','str','string','id','game_id'])
+```
+It'll be hard to do an analysis with null values, but we'd have to drop a lot of characters if we drop them, so we'll just fill it with the string "None".
