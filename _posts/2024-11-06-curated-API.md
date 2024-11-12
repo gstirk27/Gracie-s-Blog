@@ -86,4 +86,28 @@ Next, we'll drop the extra columns the null values.
 ```python
 characters = newdf.drop(columns=['appearances','description','str','string','id','game_id'])
 ```
-It'll be hard to do an analysis with null values, but we'd have to drop a lot of characters if we drop them, so we'll just fill it with the string "None".
+It'll be hard to do an analysis with null values, so we'll just drop them for now.
+
+```python
+characters.dropna(inplace=True)
+```
+I've noticed that there's a lot of races included in the dataset that only show up once or twice (can be found with `characters['title'].value_counts()`). I don't want the analysis to become too cluttered, so I'll just look at some more popular character races.
+
+Since I'm always worried I'm going to save over something important, I'll duplicatae the dataset so I can change some things around.
+
+```python
+forchi2 = characters[characters['race'].isin(['Lokomo','Zora','Hylian','Gerudo','Goron','Rito','Korok','Kokiri','Anouki','Kikwi','Sheikah','Hylians','Minish','Deku Scrub','Twili'])]
+```
+I've also noticed that there's a lot of games included in the dataset. It can be a hot topic in the fandom on what is really a Legend of Zelda game, but I don't think Freshly-Picked Tingle's Rosy Rupeeland with one entry is really going to tell me the information I need. So I'll narrow the game titles down to those that have more than 5 characters listed.
+
+```python
+tc = forchi2['title'].value_counts()
+tc1 = tc[tc > 5].index
+fforchi2 = forchi2[forchi2['title'].isin(tc1)]
+```
+Now we have a filtered dataset that only has more of the popular races and games.
+
+To look at what's going on here, we can make a table of counts:
+```python
+pd.crosstab(fforchi2['race'], fforchi2['title'], margins=True, margins_name="Total")
+```
