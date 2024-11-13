@@ -111,3 +111,35 @@ To look at what's going on here, we can make a table of counts:
 ```python
 pd.crosstab(fforchi2['race'], fforchi2['title'], margins=True, margins_name="Total")
 ```
+
+There are a lot of zeros all across the board, which isn't unexpected. However, it does mean that it would be inappropriate to perform a Chi-Square test. We can also narrow down the races we include to only the ones that have more than 20 entries.
+
+```python
+forchi2 = forchi[forchi['race'].isin(['Zora','Hylian','Gerudo','Goron','Rito','Sheikah'])]
+forchi2['title'].value_counts()
+tc = forchi2['title'].value_counts()
+tc1 = tc[tc > 5].index
+fforchi2 = forchi2[forchi2['title'].isin(tc1)]
+pd.crosstab(fforchi2['race'], fforchi2['title'], margins=True, margins_name="Total")
+```
+Now, lets look at some interesting facts we can glean from the marginal and conditional distributions.
+
+- Breath of the Wild has the most characters listed in the dataset. This game has 49.39% of the entries for characters in this table.
+- Hylians are the most common race included in the table. They make up 63.78% of the entries in the table.
+- The Gerudo are the next most common race coming in at 13.17% of the entries in the table.
+- Behind Hylians, Gorons have been in the most games. According to the data, they have appeared in all but three of the mainline Zelda games.
+- The game title "The Legend of Zelda" had the fewest characters listed at only 7.
+
+To look even closer, let's look at a pie chart:
+```python
+fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
+
+```
+![Race-Pie-Chart](/assets/images/race-pie-chart.png)
+
+And the one for titles:
+```python
+fforchi2.reset_index(inplace=True)
+fforchi2['title'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
+```
+![Game-Pie-Chart](/assets/images/game-pie-chart.png)
