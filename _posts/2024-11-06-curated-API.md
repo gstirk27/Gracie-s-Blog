@@ -135,7 +135,7 @@ To look even closer, let's look at a pie chart:
 fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 
 ```
-![Race-Pie-Chart]({{site.url}}/{{site.baseurl}}/assets/images/race-pie-chart.png)
+![Race-Pie-Chart]({{site.url}}/{{site.baseurl}}/assets/images/race-pie-chart.jpg)
 
 We can see from here that overall the games, the human-like race has far more characters shown in the games.
 
@@ -145,8 +145,11 @@ fforchi2['title'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 ```
 ![Game-Pie-Chart]({{site.url}}/{{site.baseurl}}/assets/images/game-pie-chart.png)
 
-<img src='/assets/images/game-pie-chart.png' alt = "">
-:')
+<figure>
+<img src='/assets/images/game-pie-chart.jpg' alt = "" style = "width: 45%;"/>
+</figure>
+
+hello
 
 This chart shows how many characters are listed in each game. All of the early games tended to only have a few NPCs each, and then an open-world Zelda game out. In an open-world game, you need a lot more characters to make the environment feel alive and full, so it would make since that Breath of the Wild had more characters.
 
