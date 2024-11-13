@@ -137,9 +137,20 @@ fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 ```
 ![Race-Pie-Chart](/assets/images/race-pie-chart.png)
 
-And the one for titles:
+We can see from here that overall the games, the human-like race has far more characters shown in the games.
+
 ```python
 fforchi2.reset_index(inplace=True)
 fforchi2['title'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 ```
 ![Game-Pie-Chart](/assets/images/game-pie-chart.png)
+
+This chart shows how many characters are listed in each game. All of the early games tended to only have a few NPCs each, and then an open-world Zelda game out. In an open-world game, you need a lot more characters to make the environment feel alive and full, so it would make since that Breath of the Wild had more characters.
+
+### Conclusions
+Some things I noticed going through this data was that this dataset isn't comprehensive. I remember there being way more characters in certain games compared to the ones listed. So it's more like this a point estimate for the true proportion of characters. I would love to do this analysis again with even more characters listed. I wonder if next time I could scrape data from the Legend of Zelda wikipedia pages somehow.
+
+I've also noticed that the newest Zelda games, Tears of the Kingdom and Echoes of Wisdom are not included on this list. I found in the pages [`release notes`](https://docs.zelda.fanapis.com/blog/v1-release) that it was last updated in 2022, which would explain why there isn't more information included.
+
+I would encourage everyone reading this post to try it for themselves as well!
+
