@@ -21,8 +21,8 @@
 title: "Gracie's Blog" 
 email: gstirk@byu.edu 
 description: "This is going to be a data science blog!" 
-baseurl: "My-Blog" # the name of the repository 
-url: "https://gstirk.github.io" #  change this to "https://<your-github-username>.github.io"
+baseurl: /My-Blog # the name of the repository 
+url: https://gstirk.github.io #  change this to "https://<your-github-username>.github.io"
 image: /assets/images/headerimg.jpg
 author: Gracie Stirk
 copyright: GS # Your initials or name or what you want the copyright to be.  Leave empty for no copyright
