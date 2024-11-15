@@ -135,7 +135,7 @@ To look even closer, let's look at a pie chart:
 fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 
 ```
-
+(There should be a graph here, but it won't load in)
 
 <figure>
 
