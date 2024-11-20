@@ -139,7 +139,7 @@ fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 
 <figure>
 
-<img src='/assets/images/race-pie-chart.jpg' alt = "" style = "width: 60%;"/>
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/race-pie-chart.png' alt = "" style = "width: 60%;"/>
 
 </figure>
 
