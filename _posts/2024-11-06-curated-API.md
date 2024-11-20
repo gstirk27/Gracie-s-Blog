@@ -139,7 +139,7 @@ fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 
 <figure>
 
-<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/race-pie-chart.png' alt = "" style = "width: 60%;"/>
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/race-pie-chart.jpg' alt = "" style = "width: 60%;"/>
 
 </figure>
 
@@ -151,7 +151,9 @@ fforchi2['title'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 ```
 (There should be a graph here, but it won't load in)
 <figure>
-<img src='/assets/images/game-pie-chart.jpg' alt = "" style = "width: 100%;"/>
+
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/game-pie-chart.jpg' alt = "" style = "width: 60%;"/>
+
 </figure>
 
 This chart shows how many characters are listed in each game. All of the early games tended to only have a few NPCs each, and then an open-world Zelda game out. In an open-world game, you need a lot more characters to make the environment feel alive and full, so it would make since that Breath of the Wild had more characters.
