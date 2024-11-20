@@ -4,5 +4,5 @@ title: About
 permalink: /about/
 ---
 
-Change this text with information about me and my blog.
+This is a data science blog for my Stat 386 class!
 
