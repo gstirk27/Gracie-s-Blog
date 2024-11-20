@@ -135,7 +135,6 @@ To look even closer, let's look at a pie chart:
 fforchi2['race'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 
 ```
-(There should be a graph here, but it won't load in)
 
 <figure>
 
@@ -149,7 +148,6 @@ We can see from here that over all the games, the human-like race has far more c
 fforchi2.reset_index(inplace=True)
 fforchi2['title'].value_counts().plot.pie(figsize=(7, 7), autopct='%1.1f%%')
 ```
-(There should be a graph here, but it won't load in)
 <figure>
 
 <img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/game-pie-chart.jpg' alt = "" style = "width: 60%;"/>
