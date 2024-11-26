@@ -24,6 +24,8 @@ The API has a few different datasets that we can look at. For this analysis, we'
 
 To access all the different pages of the API (which only includes about 50 entries per page), I used the requests library and a for loop to get all the data entries. From there, I put it into a pandas DataFrame.
 
+### Cleaning the Data
+
 Cleaning the data took a little work, since it listed the character's game appearances as id codes for the game that align with their internal database of the games. I extracted the code and compared it with the id codes in the Games datasets to convert the "appearances" column into game titles that we can actually read.
 
 I also dropped the null values in the dataset to make the analysis go easier.
@@ -61,7 +63,7 @@ We can see from here that over all the games, the human-like race has far more c
 
 <figure>
 
-<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/game-pie-chart.jpg' alt = "" style = "width: 60%;"/>
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/game-pie-chart.jpg' alt = "" style = "width: 100%;"/>
 
 </figure>
 
