@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Wonderful World of Zelda APIs"
+title: "Taking a Census of Hyrule"
 author: Gracie Stirk
 description: "An analysis on the different races in Hyrule based on the Legend of Zelda OpenSource API."
 image: "/assets/images/totk-title-screen.jpg"
