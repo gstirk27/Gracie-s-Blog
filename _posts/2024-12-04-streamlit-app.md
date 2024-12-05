@@ -61,3 +61,7 @@ I was also fascinated to see that "Humans" are the second most common race in Hy
 </figure>
 
 ### Conclusion
+
+In this post, we've gone over different features I've made in a streamlit app that will help anyone with analyzing the dataset I gathered in my last post about the game franchise the Legend of Zelda and the different fantasy races featured in each game. 
+
+There are many things to learn about through this dataset that I didn't have time to cover, so I would encourage everyone reading this to try the app out for themselves!
