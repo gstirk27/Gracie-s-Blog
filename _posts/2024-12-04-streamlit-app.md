@@ -22,8 +22,21 @@ I like to visualize proportions in table of counts, since I feel like they're ea
 
 <figure>
 
-<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/sidebar.png' alt = "" style = "width: 100%;"/>
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/sidebar.png' alt = "" style = "width: 50%;"/>
 
 </figure>
 
-Through the sidebar in the app, you can narrow the table down to only the games with a lot of NPCs or just the fantasy races that feature most prominently in the Legend of Zelda franchise.
+Through the sidebar in the app, you can narrow the table down to only the games with a lot of NPCs or just the fantasy races that feature most prominently in the Legend of Zelda franchise. This cuts down on a lot of the clutter.
+
+The rest of the app is divided into 3 parts. The first tab is the main table of counts that shows all of the game titles and race names as specified from the sidebar. Unfortunately, the app won't show the entire table at once, but you can still scroll through it.
+
+<figure>
+
+<img src='https://raw.githubusercontent.com/gstirk27/My-Blog/refs/heads/main/assets/images/table-counts-main.png' alt = "" style = "width: 50%;"/>
+
+</figure>
+
+Below the table are pie charts that show the marginal distributions for how many characters are in each game and how many characters are in each race.
+
+The second and third tabs expand into conditional distributions. In the Game tab, you can specify which games in the franchise you would like to look at. This is an easy way to see the proportion of each race in a variety of the franchise's games. In the Race tab, you can look at a variety of races and see which games they feature most prominently in.
+
