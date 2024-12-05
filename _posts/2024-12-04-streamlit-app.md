@@ -3,7 +3,7 @@ layout: post
 title: "Exploring Data With Streamlit"
 author: Gracie Stirk
 description: "Looking through the data of the previous post (getting data through an API) in a streamlit app"
-image: "/assets/images/totk-title-screen.jpg"
+image: "/assets/images/totk-finale.jpg"
 ---
 
 ---
